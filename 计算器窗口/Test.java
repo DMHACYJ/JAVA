@@ -32,9 +32,6 @@ class MyException extends Exception{
  
 @SuppressWarnings("serial")
 public class Test extends JFrame{
-	/*
-	 * 
-	 */
  
 	private JTextArea textArea;				//输入文本框
 	private String input;						//结果
