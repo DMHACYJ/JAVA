@@ -1,0 +1,92 @@
+package 上机实验2;
+import java.util.Scanner;
+
+class Calendar {
+	Calendar() {
+		System.out.println("Please input years:");
+		@SuppressWarnings("resource")
+		Scanner in = new Scanner(System.in);
+		int y = in.nextInt();
+		String[] month = {"Januray", "Febuary", "March", "April", "May", "June", 
+				"July", "August", "September", "October", "November", "December"};
+		for(int i = 0; i < 12; i++) {
+			System.out.println("  Month's name is " + month[i]);
+			System.out.println("===========================");
+			week(i, y);
+			System.out.println("");
+		}
+	}
+	static int d = 1;
+	static void week(int m, int y) {
+		String[] weekday = {"Sun", "Mon", "Tue", "Wed", "The", "Fri", "Sat"};
+		for(int i = 0; i < 7; i++) {
+			System.out.print(weekday[i]+" ");
+		}
+		System.out.println("");
+		int f1 = getFirst(y);
+		int f = f1 < 6 ? f1 + 1 : 0;
+		if(m == 0) {
+			for(int i = 0; i < f; i++) {
+				System.out.print("    ");
+			}
+		} else {
+			f = (d + f - 1) % 7;
+			for(int i = 0; i < f; i++) {
+				System.out.print("    ");
+			}
+		}
+		int d1 = 1;
+		int d2 = getDay(m, y);
+		for(; d1 <= d2; d1++) {
+			if(d1 < 10)
+				System.out.print(d1 +"   ");
+			else
+				System.out.print(d1 +"  ");
+			if((f + d1) % 7 == 0)
+				System.out.println("");
+			else if(d1 == d2) {
+				System.out.println("");
+			}
+		}
+		d += d2;
+	}
+	static int getFirst(int y) {
+		return (y + (y / 4) + (y / 100 / 4) - 2 * (y / 100) + (26 * 2 / 10)) % 7;
+	}
+	static int getDay(int m, int y) {
+		switch(m) {
+		case 0:
+			return 31;
+		case 2:
+			return 31;
+		case 4:
+			return 31;
+		case 6:
+			return 31;
+		case 7:
+			return 31;
+		case 9:
+			return 31;
+		case 11:
+			return 31;
+		case 1:
+			return (y % 4 == 0 && y % 100 != 0) || (y % 400 == 0) ? 29 : 28;
+		case 3:
+			return 30;
+		case 5:
+			return 30;
+		case 8:
+			return 30;
+		case 10:
+			return 30;
+		default:
+			return -1;
+		}
+	}
+}
+
+public class Test24 {
+	public static void main(String[] args) {
+		Calendar c = new Calendar();
+	}
+}
