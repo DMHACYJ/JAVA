@@ -1,0 +1,81 @@
+package 上机实验5;
+
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.*;
+
+class MouseL{
+	public static void show(){
+		JFrame frame=new JFrame("鼠标位置");
+		frame.setLayout(new BorderLayout());
+		frame.setSize(10000,10000);
+		frame.setLocation(250,250);
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		frame.addMouseListener(new MouseListener(){
+			public void mouseClicked1(MouseEvent e) {
+				System.out.println(e.getLocationOnScreen());
+			}
+
+			public void mouseEntered1(MouseEvent arg0) {
+				// TODO 自动生成的方法存根
+				
+			}
+
+			public void mouseExited1(MouseEvent arg0) {
+				// TODO 自动生成的方法存根
+				
+			}
+
+			public void mousePressed1(MouseEvent arg0) {
+				// TODO 自动生成的方法存根
+				
+			}
+
+			public void mouseReleased1(MouseEvent arg0) {
+				// TODO 自动生成的方法存根
+				
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		}
+}
+public class Test02 {
+
+	public static void main(String[] args) {
+		SwingUtilities.invokeLater(MouseL::show);
+	}
+
+}
