@@ -1,0 +1,49 @@
+package 上机实验5;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Test07  extends JFrame{
+    private static final long serialVersionUID = 1L;
+    static JButton b1 = new JButton("红色");
+    static JButton b2 = new JButton("黄色");
+    static JButton b3 = new JButton("蓝色");
+    static JPanel p = new JPanel();
+    static JLabel  l = new JLabel("请点击下面按钮");
+    public Test07(){
+        super("动作");
+        setBounds(10,20,220,200);
+        l.setOpaque(true);
+        l.setBounds(0,0,220,150);
+        l.setHorizontalAlignment(JLabel.CENTER);
+        add(l,"Center");
+        p.add(b1);
+        p.add(b2);
+        p.add(b3);
+        add(p,"South");
+        b1.addActionListener(new B());
+        b2.addActionListener(new B());
+        b3.addActionListener(new B());
+        setVisible(true);
+    }
+    public static void main(String[] args) {
+        Test07 a = new Test07();
+    }
+}
+class B implements ActionListener{
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == Test07.b1){
+        	Test07.l.setText("按下的是红色的按钮");
+        	Test07.l.setBackground(Color.red);
+        }else if(e.getSource() == Test07.b2){
+        	Test07.l.setText("按下的是黄色的按钮");
+        	Test07.l.setBackground(Color.yellow);
+        }else if(e.getSource() == Test07.b3){
+        	Test07.l.setText("按下的是蓝色的按钮");
+        	Test07.l.setBackground(Color.blue);
+        }
+    }
+
+}
